@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - FineQuill</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>FineQuill</h1>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="dashboard.html" class="active"><i class="fas fa-user"></i></a>
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <div class="dashboard-sidebar">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3 id="user-name">Loading...</h3>
+                        <p id="user-email">Loading...</p>
+                    </div>
+                    <nav class="dashboard-nav">
+                        <ul>
+                            <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                            <li><a href="#orders"><i class="fas fa-shopping-bag"></i> My Orders</a></li>
+                            <li><a href="#addresses"><i class="fas fa-map-marker-alt"></i> Addresses</a></li>
+                            <li><a href="#account"><i class="fas fa-user-cog"></i> Account Details</a></li>
+                            <li><a href="#logout" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="dashboard-content">
+                    <div id="dashboard" class="dashboard-section active">
+                        <h2>Dashboard</h2>
+                        <div class="dashboard-stats">
+                            <div class="stat-card">
+                                <i class="fas fa-shopping-bag"></i>
+                                <h3>Total Orders</h3>
+                                <p id="total-orders">0</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-star"></i>
+                                <h3>Wishlist</h3>
+                                <p>0</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h3>Saved Addresses</h3>
+                                <p>0</p>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-orders">
+                            <h3>Recent Orders</h3>
+                            <div class="orders-list" id="orders-list">
+                                <p>No recent orders found</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="orders" class="dashboard-section">
+                        <h2>My Orders</h2>
+                        <div class="orders-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Order #</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Total</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orders-table-body">
+                                    <tr>
+                                        <td colspan="5">No orders found</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div id="addresses" class="dashboard-section">
+                        <h2>Saved Addresses</h2>
+                        <div class="addresses-grid" id="addresses-grid">
+                            <div class="address-card">
+                                <h3>Default Address</h3>
+                                <p id="default-address">No address saved yet</p>
+                                <button class="btn btn-outline">Edit Address</button>
+                            </div>
+                        </div>
+                        <button class="btn" id="add-address-btn">Add New Address</button>
+                    </div>
+                    
+                    <div id="account" class="dashboard-section">
+                        <h2>Account Details</h2>
+                        <form id="accountForm">
+                            <div class="form-group">
+                                <label for="account-name">Full Name</label>
+                                <input type="text" id="account-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="account-email">Email Address</label>
+                                <input type="email" id="account-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="account-phone">Phone Number</label>
+                                <input type="tel" id="account-phone" required>
+                            </div>
+                            <button type="submit" class="btn">Save Changes</button>
+                        </form>
+                        
+                        <div class="change-password">
+                            <h3>Change Password</h3>
+                            <form id="passwordForm">
+                                <div class="form-group">
+                                    <label for="current-password">Current Password</label>
+                                    <input type="password" id="current-password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-password">New Password</label>
+                                    <input type="password" id="new-password" minlength="6" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-new-password">Confirm New Password</label>
+                                    <input type="password" id="confirm-new-password" required>
+                                </div>
+                                <button type="submit" class="btn">Update Password</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>FineQuill</h3>
+                    <p>Premium stationery for students, professionals, and stationery enthusiasts.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="returns-refunds.html">Returns & Refunds</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> My Town Shopping Centre</li>
+                        <li><i class="fas fa-phone"></i> +603-1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@finequill.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FineQuill. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+// In dashboard.html script
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    
+    // Refresh user data before loading
+    refreshUserData();
+    loadDashboardData();
+    
+    // ... rest of your code ...
+});
+// In dashboard.html script
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('view-order')) {
+        e.preventDefault();
+        const orderId = parseInt(e.target.getAttribute('data-id'));
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        const order = currentUser.orders.find(o => o.id === orderId);
+        
+        if (order) {
+            // Show order details in a modal or new page
+            localStorage.setItem('currentOrder', JSON.stringify(order));
+            window.location.href = 'order-details.html';
+        }
+    }
+});
+
+// Di dashboard.html script
+function loadDashboardData() {
+    // Refresh user data first
+    const currentUser = refreshUserData() || JSON.parse(localStorage.getItem('currentUser'));
+    
+    if (!currentUser) {
+        window.location.href = 'login.html';
+        return;
+    }
+    
+    // Update user info
+    document.getElementById('user-name').textContent = currentUser.name;
+    document.getElementById('user-email').textContent = currentUser.email;
+    document.getElementById('account-name').value = currentUser.name;
+    document.getElementById('account-email').value = currentUser.email;
+    document.getElementById('account-phone').value = currentUser.phone || '';
+    
+    // Load orders
+    const ordersTable = document.getElementById('orders-table-body');
+    const ordersList = document.getElementById('orders-list');
+    
+    if (currentUser.orders && currentUser.orders.length > 0) {
+        document.getElementById('total-orders').textContent = currentUser.orders.length;
+        
+        // Clear existing content
+        ordersTable.innerHTML = '';
+        ordersList.innerHTML = '';
+        
+        // Populate orders table
+        currentUser.orders.forEach(order => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${order.orderNumber}</td>
+                <td>${new Date(order.date).toLocaleDateString()}</td>
+                <td><span class="status-badge ${order.status.toLowerCase()}">${order.status}</span></td>
+                <td>RM ${order.total.toFixed(2)}</td>
+                <td><a href="#" class="view-order" data-id="${order.id}">View</a></td>
+            `;
+            ordersTable.appendChild(row);
+        });
+        
+        // Populate recent orders (first 3)
+        const recentOrders = currentUser.orders.slice(0, 3);
+        recentOrders.forEach(order => {
+            const orderEl = document.createElement('div');
+            orderEl.className = 'order-item';
+            orderEl.innerHTML = `
+                <div class="order-header">
+                    <span class="order-number">Order #${order.orderNumber}</span>
+                    <span class="order-date">${new Date(order.date).toLocaleDateString()}</span>
+                    <span class="order-status ${order.status.toLowerCase()}">${order.status}</span>
+                </div>
+                <div class="order-total">RM ${order.total.toFixed(2)}</div>
+            `;
+            ordersList.appendChild(orderEl);
+        });
+    } else {
+        ordersTable.innerHTML = '<tr><td colspan="5">No orders found</td></tr>';
+        ordersList.innerHTML = '<p>No recent orders found</p>';
+        document.getElementById('total-orders').textContent = '0';
+    }
+}
+
+// Tambahkan event listener untuk view order
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('view-order')) {
+        e.preventDefault();
+        const orderId = parseInt(e.target.getAttribute('data-id'));
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        const order = currentUser.orders.find(o => o.id === orderId);
+        
+        if (order) {
+            // Simpan order yang dipilih dan redirect ke halaman detail
+            localStorage.setItem('currentOrder', JSON.stringify(order));
+            window.location.href = 'order-details.html';
+        }
+    }
+});
+
+// Panggil fungsi saat halaman dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    loadDashboardData();
+});
+
+function showLoading() {
+    document.querySelectorAll('.dashboard-section').forEach(section => {
+        section.innerHTML = '<div class="loading-spinner"><i class="fas fa-spinner fa-spin"></i></div>';
+    });
+}
+
+function loadDashboardData() {
+    showLoading();
+    
+    // Simulate loading delay (remove in production)
+    setTimeout(() => {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        // ... rest of your loading code ...
+    }, 500);
+}
+
+function loadDashboardData() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+        window.location.href = 'login.html';
+        return;
+    }
+    
+    // Update user info
+    document.getElementById('user-name').textContent = currentUser.name;
+    document.getElementById('user-email').textContent = currentUser.email;
+    document.getElementById('account-name').value = currentUser.name;
+    document.getElementById('account-email').value = currentUser.email;
+    document.getElementById('account-phone').value = currentUser.phone || '';
+    
+    // Load orders
+    const ordersTable = document.getElementById('orders-table-body');
+    const ordersList = document.getElementById('orders-list');
+    
+    if (currentUser.orders && currentUser.orders.length > 0) {
+        document.getElementById('total-orders').textContent = currentUser.orders.length;
+        
+        // Clear existing content
+        ordersTable.innerHTML = '';
+        ordersList.innerHTML = '';
+        
+        // Populate orders table
+        currentUser.orders.forEach(order => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${order.orderNumber}</td>
+                <td>${new Date(order.date).toLocaleDateString()}</td>
+                <td><span class="status-badge ${order.status.toLowerCase()}">${order.status}</span></td>
+                <td>RM ${order.total.toFixed(2)}</td>
+                <td><a href="#" class="view-order" data-id="${order.id}">View</a></td>
+            `;
+            ordersTable.appendChild(row);
+        });
+        
+        // Populate recent orders (first 3)
+        const recentOrders = currentUser.orders.slice(0, 3);
+        recentOrders.forEach(order => {
+            const orderEl = document.createElement('div');
+            orderEl.className = 'order-item';
+            orderEl.innerHTML = `
+                <div class="order-header">
+                    <span class="order-number">Order #${order.orderNumber}</span>
+                    <span class="order-date">${new Date(order.date).toLocaleDateString()}</span>
+                    <span class="order-status ${order.status.toLowerCase()}">${order.status}</span>
+                </div>
+                <div class="order-total">RM ${order.total.toFixed(2)}</div>
+            `;
+            ordersList.appendChild(orderEl);
+        });
+    } else {
+        ordersTable.innerHTML = '<tr><td colspan="5">No orders found</td></tr>';
+        ordersList.innerHTML = '<p>No recent orders found</p>';
+        document.getElementById('total-orders').textContent = '0';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    loadDashboardData(); // Load data when page loads
+    
+});
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            
+            // Check if user is logged in
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Load user data
+            document.getElementById('user-name').textContent = currentUser.name;
+            document.getElementById('user-email').textContent = currentUser.email;
+            document.getElementById('account-name').value = currentUser.name;
+            document.getElementById('account-email').value = currentUser.email;
+            document.getElementById('account-phone').value = currentUser.phone || '';
+            
+            // Load orders
+            if (currentUser.orders && currentUser.orders.length > 0) {
+                document.getElementById('total-orders').textContent = currentUser.orders.length;
+                
+                // Populate orders table
+                const ordersTable = document.getElementById('orders-table-body');
+                ordersTable.innerHTML = '';
+                
+                currentUser.orders.forEach(order => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${order.orderNumber}</td>
+                        <td>${new Date(order.date).toLocaleDateString()}</td>
+                        <td><span class="status-badge ${order.status.toLowerCase()}">${order.status}</span></td>
+                        <td>RM ${order.total.toFixed(2)}</td>
+                        <td><a href="#" class="view-order" data-id="${order.id}">View</a></td>
+                    `;
+                    ordersTable.appendChild(row);
+                });
+                
+                // Populate recent orders
+                const recentOrders = currentUser.orders.slice(0, 3);
+                const ordersList = document.getElementById('orders-list');
+                ordersList.innerHTML = '';
+                
+                recentOrders.forEach(order => {
+                    const orderEl = document.createElement('div');
+                    orderEl.className = 'order-item';
+                    orderEl.innerHTML = `
+                        <div class="order-header">
+                            <span class="order-number">Order #${order.orderNumber}</span>
+                            <span class="order-date">${new Date(order.date).toLocaleDateString()}</span>
+                            <span class="order-status ${order.status.toLowerCase()}">${order.status}</span>
+                        </div>
+                        <div class="order-total">RM ${order.total.toFixed(2)}</div>
+                    `;
+                    ordersList.appendChild(orderEl);
+                });
+            }
+            
+            // Logout button
+            document.getElementById('logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('currentUser');
+                window.location.href = 'login.html';
+            });
+            
+            // Dashboard navigation
+            document.querySelectorAll('.dashboard-nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href').substring(1);
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.dashboard-nav a').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    document.querySelectorAll('.dashboard-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    document.getElementById(sectionId).classList.add('active');
+                });
+            });
+            
+            // Account form submission
+            document.getElementById('accountForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Update user data
+                const users = JSON.parse(localStorage.getItem('users'));
+                const userIndex = users.findIndex(u => u.id === currentUser.id);
+                
+                if (userIndex !== -1) {
+                    users[userIndex].name = document.getElementById('account-name').value;
+                    users[userIndex].email = document.getElementById('account-email').value;
+                    users[userIndex].phone = document.getElementById('account-phone').value;
+                    
+                    localStorage.setItem('users', JSON.stringify(users));
+                    localStorage.setItem('currentUser', JSON.stringify(users[userIndex]));
+                    
+                    showNotification('Account updated successfully!', 'success');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

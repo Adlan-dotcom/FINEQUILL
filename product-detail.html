@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - FineQuill</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+            <a href="index.html">
+            <h1>FineQuill</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+<!-- In all header sections, update the user icon -->
+<div class="header-icons">
+    <a href="dashboard.html" id="user-icon"><i class="fas fa-user"></i></a>
+    <a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+</div>
+        </div>
+    </header>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-container" id="product-detail-container">
+                <!-- Product will be loaded via JavaScript -->
+            </div>
+            
+            <!-- Related Products -->
+            <div class="related-products">
+                <h2>You May Also Like</h2>
+                <div class="product-grid" id="related-products">
+                    <!-- Related products will be loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Add this below the header in pages like products.html, product-detail.html -->
+<div class="container breadcrumbs">
+    <a href="index.html">Home</a>
+    <span>/</span>
+    <a href="products.html">Products</a>
+    <span>/</span>
+    <a href="products.html?category=Stationery">Writing Instruments</a>
+    <!-- Current page would not be a link -->
+</div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>FineQuill</h3>
+                    <p>Premium stationery for students, professionals, and stationery enthusiasts.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="returns-refunds.html">Returns & Refunds</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> My Town Shopping Centre</li>
+                        <li><i class="fas fa-phone"></i> +603-1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@finequill.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FineQuill. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get product ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id'));
+            
+            // Find the product
+            const product = products.find(p => p.id === productId);
+            
+            if (product) {
+                // Display product details
+                const productDetailContainer = document.getElementById('product-detail-container');
+                
+                productDetailContainer.innerHTML = `
+                    <div class="product-images">
+                        <div class="main-image">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h2>${product.name}</h2>
+                        <div class="product-meta">
+                            <div class="rating">
+                                ${generateStarRating(product.rating)}
+                                <span>${product.rating} (${product.reviews} reviews)</span>
+                            </div>
+                            <div class="sku">SKU: ${product.sku}</div>
+                        </div>
+                        <div class="price">RM ${product.price.toFixed(2)}</div>
+                        <div class="product-description">
+                            <h3>Description</h3>
+                            <p>${product.description}</p>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                            <button class="btn add-to-cart" data-id="${product.id}">Add to Cart</button>
+                            <button class="btn btn-outline buy-now" data-id="${product.id}">Buy Now</button>
+                        </div>
+                    </div>
+                `;
+                
+                // Add event listeners for quantity buttons
+                const minusBtn = productDetailContainer.querySelector('.minus');
+                const plusBtn = productDetailContainer.querySelector('.plus');
+                const quantityInput = productDetailContainer.querySelector('.quantity-input');
+                
+                minusBtn.addEventListener('click', function() {
+                    let value = parseInt(quantityInput.value);
+                    if (value > 1) {
+                        quantityInput.value = value - 1;
+                    }
+                });
+                
+                plusBtn.addEventListener('click', function() {
+                    let value = parseInt(quantityInput.value);
+                    quantityInput.value = value + 1;
+                });
+                
+
+                
+                // Buy now button
+                const buyNowBtn = productDetailContainer.querySelector('.buy-now');
+                buyNowBtn.addEventListener('click', function() {
+                    const quantity = parseInt(quantityInput.value);
+                    addToCart(product.id, quantity);
+                    updateCartCount();
+                    window.location.href = 'cart.html';
+                });
+                
+                // Find related products (same category, different products)
+                const relatedProducts = products.filter(p => 
+                    p.category === product.category && p.id !== product.id
+                ).slice(0, 4);
+                
+                displayProducts(relatedProducts, 'related-products');
+            } else {
+                // Product not found, redirect to products page
+                window.location.href = 'products.html';
+            }
+            
+            updateCartCount();
+        });
+        
+        function generateStarRating(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+    </script>
+</body>
+</html>

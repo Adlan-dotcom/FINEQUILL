@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FineQuill - Premium Stationery</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+<header>
+    <div class="container">
+         <div class="logo">
+            <a href="index.html">
+            <h1>FineQuill</h1>
+            </a>
+        </div>
+        
+        <!-- Search Bar -->
+<div class="search-container">
+    <form action="products.html" method="get">
+        <input type="text" placeholder="Search products..." name="search" id="searchInput">
+        <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+</div>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li class="dropdown">
+                    <a href="products.html">Products <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="products.html?category=Stationery">Writing Instruments</a>
+                        <a href="products.html?category=notebooks">Notebooks & Files</a>
+                        <a href="products.html?category=office">Office Essentials</a>
+                    </div>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+<!-- In all header sections, update the user icon -->
+<div class="header-icons">
+    <a href="dashboard.html" id="user-icon"><i class="fas fa-user"></i></a>
+    <a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+</div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-slider">
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <img src="assets/images/banner 1.png" alt="Banner 1" />
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <img src="assets/images/banner2.png" alt="Banner 2" />
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <img src="assets/images/banner3.png" alt="Banner 3" />
+    </div>
+  </div>
+
+  <!-- Text Overlay -->
+  <div class="hero-content">
+    <div class="container">
+      <h1>Premium Stationery for Discerning Minds</h1>
+      <p>Discover our best-selling pens, notebooks, and office essentials</p>
+      <a href="products.html?sort=rating" class="btn">Shop Now</a>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+  <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+
+  <!-- Dots -->
+  <div class="slider-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="window.location.href='products.html?category=Stationery'">
+                    <img src="assets/images/pencategories.png" alt="Stationery">
+                    <h3>Writing Instruments</h3>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=notebooks'">
+                    <img src="assets/images/notebookscat.png" alt="Notebooks">
+                    <h3>Notebooks & Files</h3>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=office'">
+                    <img src="assets/images/officecat.png" alt="Office Supplies">
+                    <h3>Office Essentials</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="product-grid" id="featured-products">
+                <!-- Products will be loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+    <div class="container">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>The quality of FineQuill's products is unmatched. My Pilot G2 pen writes like a dream!</p>
+                <div class="testimonial-author">
+                    <img src="assets/images/nial.png" alt="Sarah J.">
+                    <span>Muhd Danial</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>Fast delivery and excellent customer service. Will definitely shop here again!</p>
+                <div class="testimonial-author">
+                    <img src="assets/images/syaz.png" alt="Ahmad K.">
+                    <span>Muhd Syazwan</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>The Kokuyo Campus Notebook is perfect for my university notes. Highly recommend!</p>
+                <div class="testimonial-author">
+                    <img src="assets/images/khai.png" alt="Priya M.">
+                    <span>Khairul Aiman</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+    <div class="container">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter for exclusive offers and new arrivals</p>
+        <form id="newsletter-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn">Subscribe</button>
+        </form>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>FineQuill</h3>
+                    <p>Premium stationery for students, professionals, and stationery enthusiasts.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/FineQuillStationery" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/FineQuillStationery" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/FineQuill" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="returns-refunds.html">Returns & Refunds</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> My Town Shopping Centre</li>
+                        <li><i class="fas fa-phone"></i> +603-1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@finequill.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FineQuill. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Load featured products
+        document.addEventListener('DOMContentLoaded', function() {
+            const featuredProducts = products.filter(product => 
+                product.id === 1 || product.id === 9 || product.id === 17 || product.id === 5
+            );
+            displayProducts(featuredProducts, 'featured-products');
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

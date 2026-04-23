@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - FineQuill</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                <h1>FineQuill</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-icons">
+                <a href="dashboard.html" id="user-icon"><i class="fas fa-user"></i></a>
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+
+        <div class="search-container">
+        <form>
+            <input type="text" placeholder="Search products..." name="search">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+        </div>
+    </div>
+    </header>
+
+    
+<!-- Products Section -->
+<section class="products-page">
+    <div class="container">
+        <div class="page-header">
+            <h2>Our Products</h2>
+            <div class="sort-filter">
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="Stationery">Writing Instruments</option>
+                    <option value="notebooks">Notebooks & Files</option>
+                    <option value="office">Office Essentials</option>
+                </select>
+                <select id="sort-by">
+                    <option value="default">Sort By</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Rating</option>
+                </select>
+            </div>
+        </div>
+        
+
+        
+        <!-- Active filters display (optional) -->
+        <div class="active-filters" id="active-filters">
+            <!-- Will be populated by JavaScript -->
+        </div>
+        
+        <div class="product-grid" id="products-grid">
+            <!-- Products will be loaded via JavaScript -->
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>FineQuill</h3>
+                    <p>Premium stationery for students, professionals, and stationery enthusiasts.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="returns-refunds.html">Returns & Refunds</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> My Town Shopping Centre</li>
+                        <li><i class="fas fa-phone"></i> +603-1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@finequill.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FineQuill. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    const searchParam = urlParams.get('search');
+
+    let filteredProducts = products;
+
+    // Filter by category if provided
+    if (categoryParam) {
+        filteredProducts = filteredProducts.filter(product => product.category === categoryParam);
+        document.getElementById('category-filter').value = categoryParam;
+    }
+
+    // Filter by search if provided
+    if (searchParam) {
+        const searchTerm = searchParam.toLowerCase();
+        filteredProducts = filteredProducts.filter(product =>
+            product.name.toLowerCase().includes(searchTerm) ||
+            product.description.toLowerCase().includes(searchTerm) ||
+            product.category.toLowerCase().includes(searchTerm)
+        );
+    }
+
+    displayProducts(filteredProducts, 'products-grid');
+    updateCartCount();
+
+    // Category filter dropdown
+    document.getElementById('category-filter').addEventListener('change', function() {
+        const category = this.value;
+        let filtered = products;
+        
+        if (category !== 'all') {
+            filtered = products.filter(product => product.category === category);
+        }
+        
+        displayProducts(filtered, 'products-grid');
+    });
+
+    // Sort filter dropdown
+    document.getElementById('sort-by').addEventListener('change', function() {
+        const sortValue = this.value;
+        let sortedProducts = [...products];
+        
+        if (sortValue === 'price-low') {
+            sortedProducts.sort((a, b) => a.price - b.price);
+        } else if (sortValue === 'price-high') {
+            sortedProducts.sort((a, b) => b.price - a.price);
+        } else if (sortValue === 'rating') {
+            sortedProducts.sort((a, b) => b.rating - a.rating);
+        }
+        
+        displayProducts(sortedProducts, 'products-grid');
+    });
+});
+</script>
+</body>
+</html>

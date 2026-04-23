@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - FineQuill</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>FineQuill</h1>
+                </a>
+            </div>
+            
+            <div class="search-container">
+                <form action="products.html" method="get">
+                    <input type="text" placeholder="Search products..." name="search" id="searchInput">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="products.html">Products <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="products.html?category=Stationery">Writing Instruments</a>
+                            <a href="products.html?category=notebooks">Notebooks & Files</a>
+                            <a href="products.html?category=office">Office Essentials</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-icons">
+                <a href="dashboard.html" id="user-icon"><i class="fas fa-user"></i></a>
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="faq-page">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            
+            <div class="faq-categories">
+                <h2>Browse by Category</h2>
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="all">All Questions</button>
+                    <button class="category-btn" data-category="ordering">Ordering</button>
+                    <button class="category-btn" data-category="shipping">Shipping</button>
+                    <button class="category-btn" data-category="returns">Returns</button>
+                    <button class="category-btn" data-category="products">Products</button>
+                </div>
+            </div>
+            
+            <div class="faq-accordion">
+                <div class="faq-item" data-category="ordering">
+                    <button class="faq-question">
+                        How do I place an order?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>To place an order:</p>
+                        <ol>
+                            <li>Browse our products and add items to your cart</li>
+                            <li>Click the shopping cart icon to review your order</li>
+                            <li>Proceed to checkout</li>
+                            <li>Enter your shipping and payment information</li>
+                            <li>Review your order and click "Place Order"</li>
+                        </ol>
+                        <p>You'll receive an order confirmation email once your order is successfully placed.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="ordering">
+                    <button class="faq-question">
+                        What payment methods do you accept?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept the following payment methods:</p>
+                        <ul>
+                            <li>Credit/Debit Cards (Visa, MasterCard, American Express)</li>
+                            <li>Online Banking (FPX)</li>
+                            <li>GrabPay</li>
+                            <li>Touch 'n Go eWallet</li>
+                            <li>ShopeePay</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="shipping">
+                    <button class="faq-question">
+                        How long does shipping take?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Shipping times depend on your location and the shipping method selected:</p>
+                        <ul>
+                            <li><strong>Standard Shipping:</strong> 3-5 business days (Peninsular Malaysia)</li>
+                            <li><strong>Express Shipping:</strong> 1-2 business days (Peninsular Malaysia)</li>
+                            <li><strong>East Malaysia:</strong> 5-7 business days</li>
+                        </ul>
+                        <p>Please note that processing time (1-2 business days) is additional to shipping time.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="shipping">
+                    <button class="faq-question">
+                        Do you offer free shipping?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer free standard shipping for all orders over RM100 within Peninsular Malaysia. For orders below RM100, shipping fees apply.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="returns">
+                    <button class="faq-question">
+                        What is your return policy?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept returns within 14 days of delivery for most unused and unopened items in their original packaging. Some items like ink cartridges cannot be returned for hygiene reasons.</p>
+                        <p>To initiate a return, please contact our customer service at returns@finequill.com with your order number and reason for return.</p>
+                        <p>For full details, please see our <a href="returns-refunds.html">Returns & Refunds Policy</a>.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="products">
+                    <button class="faq-question">
+                        Are your pens refillable?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Many of our pens are refillable! Product descriptions will indicate if a pen is refillable and what type of refill it uses. We also sell refills separately for most models.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="products">
+                    <button class="faq-question">
+                        What paper weight are your notebooks?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our notebook paper weights vary by product:</p>
+                        <ul>
+                            <li>Standard notebooks: 70-80gsm</li>
+                            <li>Premium notebooks: 90-100gsm</li>
+                            <li>Sketchbooks: 120-150gsm</li>
+                        </ul>
+                        <p>The specific paper weight is listed in each product's description.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-contact">
+                <h2>Still have questions?</h2>
+                <p>If you can't find the answer you're looking for, our customer service team is happy to help.</p>
+                <a href="contact.html" class="btn">Contact Us</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (same as index.html) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>FineQuill</h3>
+                    <p>Premium stationery for students, professionals, and stationery enthusiasts.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="returns-refunds.html">Returns & Refunds</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> My Town Shopping Centre</li>
+                        <li><i class="fas fa-phone"></i> +603-1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@finequill.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FineQuill. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+
+        // FAQ category filtering
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('.category-btn.active').classList.remove('active');
+                btn.classList.add('active');
+                
+                const category = btn.dataset.category;
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

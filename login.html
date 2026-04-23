@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FineQuill</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+            <a href="index.html">
+            <h1>FineQuill</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+<!-- In all header sections, update the user icon -->
+<div class="header-icons">
+    <a href="dashboard.html" id="user-icon"><i class="fas fa-user"></i></a>
+    <a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+</div>
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <section class="auth-page">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Login</button>
+                    <button class="tab-btn" data-tab="register">Register</button>
+                </div>
+                
+                <!-- Login Form -->
+                <div class="auth-form active" id="login">
+                    <h2>Welcome Back</h2>
+                    <p>Login to your account to continue shopping</p>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <input type="email" id="loginEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" name="password" required>
+                        </div>
+                        <div class="form-options">
+                            <label class="remember-me">
+                                <input type="checkbox" name="remember"> Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+                    </div>
+                </div>
+                
+                <!-- Register Form -->
+<!-- In login.html, update the register form section -->
+<div class="auth-form" id="register">
+    <h2>Create an Account</h2>
+    <p>Register to enjoy a seamless shopping experience</p>
+    <form id="registerForm">
+        <div class="form-group">
+            <label for="registerName">Full Name*</label>
+            <input type="text" id="registerName" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="registerEmail">Email Address*</label>
+            <input type="email" id="registerEmail" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="registerPhone">Phone Number*</label>
+            <input type="tel" id="registerPhone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="registerPassword">Password* (min 6 characters)</label>
+            <input type="password" id="registerPassword" name="password" minlength="6" required>
+        </div>
+        <div class="form-group">
+            <label for="registerConfirmPassword">Confirm Password*</label>
+            <input type="password" id="registerConfirmPassword" name="confirmPassword" required>
+        </div>
+        <div class="form-group">
+            <label class="terms">
+                <input type="checkbox" name="terms" required> I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+            </label>
+        </div>
+        <button type="submit" class="btn">Register</button>
+    </form>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>FineQuill</h3>
+                    <p>Premium stationery for students, professionals, and stationery enthusiasts.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="returns-refunds.html">Returns & Refunds</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> My Town Shopping Centre</li>
+                        <li><i class="fas fa-phone"></i> +603-1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@finequill.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FineQuill. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+// Add to script.js
+// User authentication system
+let users = JSON.parse(localStorage.getItem('users')) || [];
+let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+
+// Function to register a new user
+function registerUser(name, email, phone, password) {
+    const user = {
+        id: Date.now(),
+        name,
+        email,
+        phone,
+        password, // Note: In a real app, you should hash passwords
+        orders: [],
+        createdAt: new Date().toISOString()
+    };
+    
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
+    return user;
+}
+
+// Function to login user
+function loginUser(email, password) {
+    const user = users.find(u => u.email === email && u.password === password);
+    if (user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        return user;
+    }
+    return null;
+}
+
+// Function to logout user
+function logoutUser() {
+    localStorage.removeItem('currentUser');
+    currentUser = null;
+}
+
+// Function to check if user is logged in
+function isLoggedIn() {
+    return currentUser !== null;
+}
+
+// Update the login form submission in login.html script
+const loginForm = document.getElementById('loginForm');
+loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    
+    const user = loginUser(email, password);
+    if (user) {
+        showNotification('Login successful! Redirecting...', 'success');
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 1000);
+    } else {
+        showNotification('Invalid email or password', 'error');
+    }
+});
+
+// Update the register form submission in login.html script
+const registerForm = document.getElementById('registerForm');
+registerForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const phone = document.getElementById('registerPhone').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('registerConfirmPassword').value;
+    
+    if (password !== confirmPassword) {
+        showNotification('Passwords do not match!', 'error');
+        return;
+    }
+    
+    if (users.some(u => u.email === email)) {
+        showNotification('Email already registered', 'error');
+        return;
+    }
+    
+    registerUser(name, email, phone, password);
+    showNotification('Registration successful! Please login.', 'success');
+    document.querySelector('.tab-btn[data-tab="login"]').click();
+    registerForm.reset();
+});
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            
+            // Tab switching
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const authForms = document.querySelectorAll('.auth-form');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Update active tab button
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding form
+                    authForms.forEach(form => {
+                        form.classList.remove('active');
+                        if (form.id === tabId) {
+                            form.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Login form submission
+            const loginForm = document.getElementById('loginForm');
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Login successful! Redirecting to homepage...');
+                window.location.href = 'index.html';
+            });
+            
+            // Register form submission
+            const registerForm = document.getElementById('registerForm');
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const password = document.getElementById('registerPassword').value;
+                const confirmPassword = document.getElementById('registerConfirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+                
+                alert('Registration successful! You can now login with your credentials.');
+                
+                // Switch to login tab
+                document.querySelector('.tab-btn[data-tab="login"]').click();
+                this.reset();
+            });
+            
+            // Social login buttons
+            document.querySelectorAll('.social-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const provider = this.classList.contains('google') ? 'Google' : 'Facebook';
+                    alert(`You chose to login with ${provider}. In a real implementation, this would redirect to ${provider} authentication.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

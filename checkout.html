@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - FineQuill</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+            <a href="index.html">
+            <h1>FineQuill</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="dashboard.html"><i class="fas fa-user"></i></a>
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Progress -->
+    <section class="checkout-progress">
+        <div class="container">
+            <ul>
+                <li class="active"><span>1</span> Customer Details</li>
+                <li><span>2</span> Payment Method</li>
+                <li><span>3</span> Order Confirmation</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-grid">
+                <div class="checkout-form">
+                    <h2><i class="fas fa-user-circle"></i> Customer Information</h2>
+                    
+                    <form id="customerDetailsForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name*</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name*</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number*</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <h3><i class="fas fa-truck"></i> Delivery Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="address">Address*</label>
+                            <textarea id="address" name="address" rows="3" required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City*</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postcode">Postcode*</label>
+                                <input type="text" id="postcode" name="postcode" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="state">State*</label>
+                            <select id="state" name="state" required>
+                                <option value="">Select State</option>
+                                <option value="johor">Johor</option>
+                                <option value="kedah">Kedah</option>
+                                <option value="kelantan">Kelantan</option>
+                                <option value="kl">Kuala Lumpur</option>
+                                <option value="labuan">Labuan</option>
+                                <option value="melaka">Melaka</option>
+                                <option value="ns">Negeri Sembilan</option>
+                                <option value="pahang">Pahang</option>
+                                <option value="penang">Penang</option>
+                                <option value="perak">Perak</option>
+                                <option value="perlis">Perlis</option>
+                                <option value="putrajaya">Putrajaya</option>
+                                <option value="sabah">Sabah</option>
+                                <option value="sarawak">Sarawak</option>
+                                <option value="selangor">Selangor</option>
+                                <option value="terengganu">Terengganu</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Order Notes (Optional)</label>
+                            <textarea id="notes" name="notes" rows="2"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Continue to Payment</button>
+                    </form>
+                </div>
+                
+                <div class="order-summary">
+                    <h2><i class="fas fa-receipt"></i> Your Order</h2>
+                    
+                    <div class="summary-items" id="checkout-items">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="delivery-method">
+                        <h3><i class="fas fa-shipping-fast"></i> Delivery Method</h3>
+                        <div class="delivery-option active">
+                            <input type="radio" id="standard" name="delivery" value="5.00" checked>
+                            <label for="standard">
+                                <span class="delivery-title">Standard Delivery</span>
+                                <span class="delivery-desc">3-5 business days</span>
+                                <span class="delivery-price">RM 5.00</span>
+                            </label>
+                        </div>
+                        <div class="delivery-option">
+                            <input type="radio" id="express" name="delivery" value="10.00">
+                            <label for="express">
+                                <span class="delivery-title">Express Delivery</span>
+                                <span class="delivery-desc">1-2 business days</span>
+                                <span class="delivery-price">RM 10.00</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">RM 0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="shipping">RM 5.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="total">RM 5.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-credit-card"></i> Select Payment Method</h2>
+            
+            <div class="payment-options">
+                <div class="payment-option">
+                    <input type="radio" id="creditCard" name="paymentMethod" value="creditCard">
+                    <label for="creditCard">
+                        <i class="fab fa-cc-visa"></i>
+                        <span>Credit/Debit Card</span>
+                    </label>
+                    <div class="payment-details" id="creditCardDetails">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiryDate">Expiry Date</label>
+                                <input type="text" id="expiryDate" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardName">Name on Card</label>
+                            <input type="text" id="cardName">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-option">
+                    <input type="radio" id="onlineBanking" name="paymentMethod" value="onlineBanking">
+                    <label for="onlineBanking">
+                        <i class="fas fa-university"></i>
+                        <span>Online Banking</span>
+                    </label>
+                    <div class="payment-details" id="onlineBankingDetails">
+                        <div class="form-group">
+                            <label for="bank">Select Bank</label>
+                            <select id="bank">
+                                <option value="">Choose your bank</option>
+                                <option value="maybank">Maybank</option>
+                                <option value="cimb">CIMB</option>
+                                <option value="public">Public Bank</option>
+                                <option value="rhb">RHB</option>
+                                <option value="hongleong">Hong Leong Bank</option>
+                            </select>
+                        </div>
+                        <p class="note">You will be redirected to your bank's secure payment gateway</p>
+                    </div>
+                </div>
+                
+                <div class="payment-option">
+                    <input type="radio" id="ewallet" name="paymentMethod" value="ewallet">
+                    <label for="ewallet">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>E-Wallet</span>
+                    </label>
+                    <div class="payment-details" id="ewalletDetails">
+                        <div class="form-group">
+                            <label for="ewalletProvider">Select E-Wallet</label>
+                            <select id="ewalletProvider">
+                                <option value="">Choose your e-wallet</option>
+                                <option value="touchngo">Touch 'n Go eWallet</option>
+                                <option value="shopee">ShopeePay</option>
+                                <option value="GrabPay">GrabPay</option>
+                            </select>
+                        </div>
+                        <p class="note">You will be redirected to your e-wallet app for payment</p>
+                    </div>
+                </div>
+                
+                <div class="payment-option">
+                    <input type="radio" id="cod" name="paymentMethod" value="cod">
+                    <label for="cod">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Cash on Delivery (COD)</span>
+                    </label>
+                    <div class="payment-details" id="codDetails">
+                        <p class="note">Pay with cash when your order arrives. An additional RM 3.00 COD fee applies.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" class="btn" id="confirmPayment">Confirm Payment</button>
+        </div>
+    </div>
+
+    <!-- Confirmation Section -->
+    <div class="confirmation-section" id="confirmationSection" style="display: none;">
+        <div class="container">
+            <div class="confirmation-box">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Order Confirmed!</h2>
+                <p class="order-number">Your order #FG-<span id="orderNumber"></span> has been placed successfully</p>
+                <p>We've sent a confirmation email to <span class="email" id="confirmationEmail"></span></p>
+                
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>Payment Method:</span>
+                        <span class="payment-method" id="confirmationPayment"></span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Address:</span>
+                        <span class="delivery-address" id="confirmationAddress"></span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total Paid:</span>
+                        <span id="confirmationTotal"></span>
+                    </div>
+                </div>
+                
+                <div class="confirmation-actions">
+                    <a href="products.html" class="btn btn-outline">Continue Shopping</a>
+                    <a href="#" class="btn" id="orderDetailsLink">View Order Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+<script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if user is logged in
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) {
+            showNotification('Please login to proceed with checkout', 'error');
+            setTimeout(() => {
+                window.location.href = 'login.html?redirect=checkout';
+            }, 1500);
+            return;
+        }
+        
+        // Initialize cart display
+        updateCheckoutItems();
+        updateCartCount();
+
+        // Handle form submission
+        const customerForm = document.getElementById('customerDetailsForm');
+        customerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            if (customerForm.checkValidity()) {
+                // Show payment modal
+                document.getElementById('paymentModal').style.display = 'flex';
+                
+                // Update confirmation details
+                document.getElementById('confirmationEmail').textContent = 
+                    document.getElementById('email').value;
+                
+                // Generate random order number
+                document.getElementById('orderNumber').textContent = 
+                    Math.floor(100000 + Math.random() * 900000);
+                
+                // Format delivery address
+                const address = [
+                    document.getElementById('address').value,
+                    document.getElementById('postcode').value,
+                    document.getElementById('city').value,
+                    document.getElementById('state').value
+                ].filter(Boolean).join(', ');
+                document.getElementById('confirmationAddress').textContent = address;
+                
+                // Update total in confirmation
+                document.getElementById('confirmationTotal').textContent = 
+                    document.getElementById('total').textContent;
+                
+                // Update checkout progress
+                document.querySelectorAll('.checkout-progress li')[1].classList.add('active');
+            } else {
+                // Show validation errors
+                customerForm.reportValidity();
+            }
+        });
+
+        // Close modal handler
+        document.querySelector('.close-modal').addEventListener('click', function() {
+            document.getElementById('paymentModal').style.display = 'none';
+        });
+
+        // Confirm payment handler
+        document.getElementById('confirmPayment').addEventListener('click', function() {
+            // Validate payment method selection
+            const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
+            
+            if (!selectedPayment) {
+                alert('Please select a payment method');
+                return;
+            }
+            
+            // Update payment method display text
+            let paymentMethodText = '';
+            switch(selectedPayment.value) {
+                case 'creditCard':
+                    paymentMethodText = 'Credit/Debit Card';
+                    break;
+                case 'onlineBanking':
+                    paymentMethodText = 'Online Banking';
+                    break;
+                case 'ewallet':
+                    paymentMethodText = 'E-Wallet';
+                    break;
+                case 'cod':
+                    paymentMethodText = 'Cash on Delivery';
+                    // Add COD fee
+                    const currentTotal = parseFloat(document.getElementById('total').textContent.replace('RM ', ''));
+                    document.getElementById('total').textContent = 'RM ' + (currentTotal + 3).toFixed(2);
+                    break;
+            }
+            document.getElementById('confirmationPayment').textContent = paymentMethodText;
+            
+            // Save order to user's account
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const userIndex = users.findIndex(u => u.id === currentUser.id);
+            
+            if (userIndex !== -1) {
+                const order = {
+                    id: Date.now(),
+                    orderNumber: 'FG-' + document.getElementById('orderNumber').textContent,
+                    date: new Date().toISOString(),
+                    items: getCart(),
+                    total: parseFloat(document.getElementById('total').textContent.replace('RM ', '')),
+                    status: 'Processing',
+                    paymentMethod: paymentMethodText,
+                    address: document.getElementById('confirmationAddress').textContent
+                };
+                
+                if (!users[userIndex].orders) {
+                    users[userIndex].orders = [];
+                }
+                
+                // Add new order at beginning of array
+                users[userIndex].orders.unshift(order);
+                
+                // Update user data
+                localStorage.setItem('users', JSON.stringify(users));
+                localStorage.setItem('currentUser', JSON.stringify(users[userIndex]));
+            }
+
+            // Hide payment modal
+            document.getElementById('paymentModal').style.display = 'none';
+            
+            // Show confirmation section
+            document.getElementById('confirmationSection').style.display = 'block';
+            
+            // Update confirmation actions
+            const confirmationActions = document.querySelector('.confirmation-actions');
+            confirmationActions.innerHTML = `
+                <a href="products.html" class="btn btn-outline">Continue Shopping</a>
+                <a href="dashboard.html" class="btn">View Order in Dashboard</a>
+            `;
+            
+            // Update checkout progress
+            document.querySelectorAll('.checkout-progress li')[2].classList.add('active');
+            
+            // Clear cart
+            clearCart();
+            updateCartCount();
+            
+            // Scroll to confirmation
+            document.getElementById('confirmationSection').scrollIntoView({ behavior: 'smooth' });
+            
+            // Show success notification
+            showNotification('Order placed successfully!', 'success');
+        });
+
+    // Delivery method change handler
+    document.querySelectorAll('input[name="delivery"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            const subtotalText = document.getElementById('subtotal').textContent;
+            const subtotal = parseFloat(subtotalText.replace('RM ', ''));
+            
+            // Only apply shipping cost if subtotal is less than 100
+            if (subtotal >= 100) {
+                document.getElementById('shipping').textContent = 'RM 0.00';
+            } else {
+                document.getElementById('shipping').textContent = 'RM ' + this.value;
+            }
+            updateOrderTotal();
+        });
+    });
+
+        // Payment option change handler
+        document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Hide all payment details
+                document.querySelectorAll('.payment-details').forEach(el => {
+                    el.style.display = 'none';
+                });
+                
+                // Show selected payment details
+                const detailsId = this.id + 'Details';
+                document.getElementById(detailsId).style.display = 'block';
+            });
+        });
+    });
+
+    // Update checkout items in order summary
+ function updateCheckoutItems() {
+        const cart = getCart();
+        const container = document.getElementById('checkout-items');
+        let subtotal = 0;
+        
+        container.innerHTML = '';
+        
+        if (cart.length === 0) {
+            container.innerHTML = '<p>Your cart is empty</p>';
+            document.getElementById('subtotal').textContent = 'RM 0.00';
+            document.getElementById('shipping').textContent = 'RM 5.00';
+            document.getElementById('total').textContent = 'RM 5.00';
+            return;
+        }
+        
+        cart.forEach(item => {
+            const product = products.find(p => p.id === item.id);
+            if (product) {
+                const itemTotal = product.price * item.quantity;
+                subtotal += itemTotal;
+                
+                const itemElement = document.createElement('div');
+                itemElement.className = 'summary-item';
+                itemElement.innerHTML = `
+                    <div class="summary-item-name">${product.name} × ${item.quantity}</div>
+                    <div class="summary-item-price">RM ${itemTotal.toFixed(2)}</div>
+                `;
+                container.appendChild(itemElement);
+            }
+        });
+        
+        // Calculate shipping (free if subtotal >= 100)
+        const shipping = subtotal >= 100 ? 0 : 5.00;
+        const total = subtotal + shipping;
+        
+        document.getElementById('subtotal').textContent = 'RM ' + subtotal.toFixed(2);
+        document.getElementById('shipping').textContent = 'RM ' + shipping.toFixed(2);
+        document.getElementById('total').textContent = 'RM ' + total.toFixed(2);
+        
+        // Update free shipping message if applicable
+        if (subtotal >= 100) {
+            const shippingRow = document.querySelector('.summary-row:nth-child(2)');
+            if (shippingRow && !shippingRow.querySelector('.free-shipping')) {
+                const freeShippingMsg = document.createElement('span');
+                freeShippingMsg.className = 'free-shipping';
+                freeShippingMsg.textContent = ' (Free Shipping!)';
+                shippingRow.querySelector('span:last-child').appendChild(freeShippingMsg);
+            }
+        } else {
+            const freeShippingMsg = document.querySelector('.free-shipping');
+            if (freeShippingMsg) {
+                freeShippingMsg.remove();
+            }
+        }
+    }
+
+    // Update order total including shipping
+    function updateOrderTotal() {
+        const subtotalText = document.getElementById('subtotal').textContent;
+        const shippingText = document.getElementById('shipping').textContent;
+        
+        const subtotal = parseFloat(subtotalText.replace('RM ', ''));
+        const shipping = parseFloat(shippingText.replace('RM ', ''));
+        
+        document.getElementById('total').textContent = 'RM ' + (subtotal + shipping).toFixed(2);
+    }
+</script>
+</body>
+</html>
